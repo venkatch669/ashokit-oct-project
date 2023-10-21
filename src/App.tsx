@@ -1,24 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-
+import './App.scss';
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+import Signup from './Pages/Signup';
+import Login from './Pages/Login';
+import NoMatch from './Pages/NoMatch';
+import Layout from './Pages/Layout';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>      
+          <Route index element={<Login />} />
+          <Route path="blogger" element={<Layout/>}/>
+          <Route path="signup" element={<Signup />} />
+          <Route path="*" element={<NoMatch />} />
+      </Routes>
     </div>
   );
 }
